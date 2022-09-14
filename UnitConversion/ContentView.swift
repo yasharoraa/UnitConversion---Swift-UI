@@ -40,6 +40,8 @@ struct ContentView: View {
                             Text($0)
                         }
                     }.pickerStyle(.segmented)
+                } header: {
+                    Text("Select input unit")
                 }
                 Section {
                     Picker("Output Unit", selection: $inputOutput.1) {
@@ -47,6 +49,8 @@ struct ContentView: View {
                             Text($0)
                         }
                     }.pickerStyle(.segmented)
+                }header: {
+                    Text("Select output unit")
                 }
                 Section {
                     TextField("Temperature", value: $temp, format: .number)
@@ -61,16 +65,18 @@ struct ContentView: View {
                     Text("Output temperature will appear here")
                 }
             }
-        }
-        .navigationTitle("Temperature Conversion")
-        .toolbar {
-            ToolbarItemGroup(placement: .keyboard) {
-                Spacer()
-                Button("Done") {
-                    inputIsFocused = false
+            .navigationTitle("Temperature Conversion")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button("Done") {
+                        inputIsFocused = false
+                    }
                 }
             }
         }
+        
     }
 }
 
